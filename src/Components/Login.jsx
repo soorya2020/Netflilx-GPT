@@ -8,7 +8,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
 import { addUser } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
 

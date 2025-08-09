@@ -11,3 +11,7 @@ export const validateFormData = (email, password) => {
 
   return null;
 };
+
+export const getRandomItemFromList = (array) => {
+  return array[[Math.floor(Math.random() * array.length)]];
+};
