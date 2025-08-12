@@ -11,13 +11,15 @@ function MainContainer() {
     return <div>Loading...</div>; // Or a skeleton UI
   }
 
-  const mainMovie = getRandomItemFromList(movies);
+  // const mainMovie = getRandomItemFromList(movies[0]);
+  const mainMovie = movies[0];
+
   const { overview, original_title, id } = mainMovie;
   return (
-    <>
+    <div className="">
       <VideoTitle title={original_title} overview={overview} />
       <VideoBackground movieId={id} />
-    </>
+    </div>
   );
 }
 
