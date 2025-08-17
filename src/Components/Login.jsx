@@ -69,16 +69,20 @@ function Login() {
   return (
     <div>
       <Header />
-      <div className="absolute w-full">
-        <img className="w-full" src={BG_IMAGE} alt="" />
+      <div className="absolute  ">
+        <img
+          className=" h-screen md:h-auto object-cover"
+          src={BG_IMAGE}
+          alt=""
+        />
       </div>
 
       <form
         action=""
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 mt-40 mx-auto right-0 left-0 absolute p-12  bg-black  text-white bg-opacity-80 rounded-lg"
+        className=" md:w-3/12 mt-40 mx-auto right-0 left-0 absolute p-8 md:p-12  bg-black  text-white bg-opacity-80 rounded-lg"
       >
-        <h1 className="font-bold text-3xl py-3">
+        <h1 className="font-bold text-xl md:text-3xl py-3">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         <input
@@ -87,7 +91,7 @@ function Login() {
           id=""
           ref={emailRef}
           placeholder="Email"
-          className="p-4 my-3 w-full bg-gray-900 rounded-sm opacity-70 border border-gray-700 "
+          className="p-3 md:p-4  my-3 w-full bg-gray-900 rounded-sm opacity-70 border border-gray-700 "
         />
         <input
           type="password"
@@ -95,7 +99,7 @@ function Login() {
           id=""
           ref={passwordRef}
           placeholder="Password"
-          className="p-4 my-3 w-full  bg-gray-900  rounded-sm opacity-70 border border-gray-700 "
+          className="p-3 md:p-4 my-3 w-full  bg-gray-900  rounded-sm opacity-70 border border-gray-700 "
         />
         {!isSignInForm && (
           <input
@@ -104,7 +108,7 @@ function Login() {
             id=""
             placeholder="Validate Password"
             ref={confirmPasswordRef}
-            className="p-4 my-3 w-full  bg-gray-900  rounded-sm opacity-70  border border-gray-700 "
+            className="p-3 md:p-4  my-3 w-full  bg-gray-900  rounded-sm opacity-70  border border-gray-700 "
           />
         )}
         {errorMessage && <p className="text-red-500">⚠️ {errorMessage}</p>}

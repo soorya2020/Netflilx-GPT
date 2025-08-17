@@ -4,6 +4,7 @@ import { useNowPlayingMovies } from "../Hooks/useNowPlayingMovies";
 import { usePopularMovies } from "../Hooks/usePopularMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import Footer from "./Footer";
 import GptSearch from "./GptSearch";
 import { useUpComingMovies } from "../Hooks/useUpComingMovies";
 import { useSelector } from "react-redux";
@@ -22,9 +23,10 @@ function Browse() {
       ) : (
         <>
           <MainContainer />
-          <SecondaryContainer />
+          <SecondaryContainer /> 
         </>
       )}
+      {!showSearch && <Footer />}
     </>
   );
 }

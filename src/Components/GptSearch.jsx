@@ -5,9 +5,13 @@ import { BG_IMAGE } from "../constants";
 
 function GptSearch() {
   return (
-    <div className="">
-      <div className="absolute w-full -z-10">
-        <img className="w-full" src={BG_IMAGE} alt="" />
+    <div className=" ">
+      <div className="fixed   -z-10">
+        <img
+          className="h-screen object-cover md:h-auto "
+          src={BG_IMAGE}
+          alt=""
+        />
       </div>
       <GptSearchBar />
       <GptMovieSuggestions />

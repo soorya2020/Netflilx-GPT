@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../redux/userSlice";
-import { toggleGptSearchView } from "../redux/gptSlice";
+import { toggleGptSearchView, clearGptResutls } from "../redux/gptSlice";
 import { changeLanguage } from "../redux/appConfigSlice";
+// import logo from "../../public/logo.png";
 
 function Header() {
   const user = useSelector((store) => store.user);
@@ -33,6 +34,9 @@ function Header() {
   }, []);
 
   const handleGptSearchClick = (e) => {
+    if (showSearch) {
+      dispatch(clearGptResutls());
+    }
     dispatch(toggleGptSearchView());
   };
 
@@ -50,12 +54,12 @@ function Header() {
   };
   return (
     <div className="sticky top-0 z-10">
-      <div className="z-10  w-full   absolute px-10 bg-gradient-to-b from-black flex justify-between   ">
-        <div>
-          <img className="w-32 pt-3" src={LOGO} alt="" />
+      <div className="z-10  w-full   absolute px-10 bg-gradient-to-b from-black flex flex-col  md:flex-row  md:justify-between  ">
+        <div className="mx-auto md:mx-0">
+          <img className="w-32 pt-3" src="/logo.png" alt="" />
         </div>
         {user && (
-          <div className="flex p-2 w-2/6  justify-end">
+          <div className="flex p-2 justify-center md:w-2/6  md:justify-end">
             {showSearch && (
               <select
                 name="language"
@@ -64,8 +68,10 @@ function Header() {
                 value={language}
                 onChange={handleLanguageChange}
               >
-                {SUPPORTED_LANGUAGES.map((language) => (
-                  <option value={language.identifier}>{language.name}</option>
+                {SUPPORTED_LANGUAGES.map((language, index) => (
+                  <option key={index} value={language.identifier}>
+                    {language.name}
+                  </option>
                 ))}
               </select>
             )}
@@ -77,11 +83,15 @@ function Header() {
             </button>
             <button
               onClick={handleSignOut}
-              className="mx-6  bg-gray-800 px-3 text-white text-sm rounded-sm hover:opacity-70"
+              className="mx-3  bg-gray-800 px-3 text-white text-sm rounded-sm hover:opacity-70"
             >
               Sign-Out
             </button>
-            <img className="" src={USER_PROFILE} alt="user profile image" />
+            <img
+              className="hidden md:block"
+              src={USER_PROFILE}
+              alt="user profile image"
+            />
           </div>
         )}
       </div>

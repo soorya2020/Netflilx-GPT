@@ -9,13 +9,15 @@ function SecondaryContainer() {
   if (!movies) return <p>Loading...</p>;
 
   return (
-    <div className="-mt-60 px-7 bg-black z-100">
-      <MovieList title={"Now Playing"} movies={movies.nowPlayingMovie} />
-      <MovieList title={"Up Coming"} movies={movies.upComingMovies} />
-      <MovieList title={"Popular"} movies={movies.popularMovies} />
+    <div className="bg-black">
+      <div className="relative  md:-mt-60 px-7 z-100">
+        <MovieList title={"Now Playing"} movies={movies.nowPlayingMovie} />
+        <MovieList title={"Up Coming"} movies={movies.upComingMovies} />
+        <MovieList title={"Popular"} movies={movies.popularMovies} />
 
-      <MovieList title={"Most Liked"} movies={movies.upComingMovies} />
-      <MovieList title={"Award nomines"} movies={movies.popularMovies} />
+        <MovieList title={"Most Liked"} movies={movies.upComingMovies} />
+        <MovieList title={"Award nomines"} movies={movies.popularMovies} />
+      </div>
     </div>
   );
 }
