@@ -54,12 +54,12 @@ function Header() {
   };
   return (
     <div className="sticky top-0 z-10">
-      <div className="z-10  w-full   absolute px-10 bg-gradient-to-b from-black flex flex-col  md:flex-row  md:justify-between  ">
-        <div className="mx-auto md:mx-0">
-          <img className="w-32 pt-3" src="/logo.png" alt="" />
+      <div className="z-10  w-full   absolute bg-gradient-to-b from-black flex flex-col  md:flex-row  md:justify-between  ">
+        <div className="mx-auto md:mx-0 md:ml-10">
+          <img className="w-32 pt-3 " src="/logo.png" alt="" />
         </div>
         {user && (
-          <div className="flex p-2 justify-center md:w-2/6  md:justify-end">
+          <div className="flex p-2 justify-center gap-5  w-screen md:w-2/6  md:justify-end">
             {showSearch && (
               <select
                 name="language"
@@ -75,18 +75,20 @@ function Header() {
                 ))}
               </select>
             )}
+
             <button
               onClick={handleGptSearchClick}
-              className="  px-3 bg-gray-800  text-white rounded-sm text-sm hover:opacity-70"
+              className=" py-2  px-3 bg-gray-800  text-white rounded-md text-sm hover:opacity-70"
             >
               {showSearch ? "Home" : "GPT Search"}
             </button>
             <button
               onClick={handleSignOut}
-              className="mx-3  bg-gray-800 px-3 text-white text-sm rounded-sm hover:opacity-70"
+              className="py-2  bg-gray-800 px-3 text-white text-sm rounded-md hover:opacity-70"
             >
               Sign-Out
             </button>
+
             <img
               className="hidden md:block"
               src={USER_PROFILE}
