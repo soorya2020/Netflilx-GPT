@@ -35,7 +35,10 @@ function Login() {
 
     setErrorMessage(message);
 
-    if (message) return;
+    if (message) {
+      setLoading(false);
+      return
+    }
 
     //signin or signup
     if (isSignInForm) {
