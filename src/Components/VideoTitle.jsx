@@ -13,7 +13,7 @@ function VideoTitle({ title, overview }) {
   return (
     <div className=" w-full   aspect-video absolute text-white bg-gradient-to-r ">
       <div className=" pt-24 md:pt-72 md:px-12">
-        <h1 className="md:text-6xl ml-3 md:ml-0 font-bold">{title}</h1>
+        <h1 className=" text-3xl md:text-6xl ml-3 md:ml-0 font-bold">{title}</h1>
         <p className=" hidden md:block w-2/4 py-4  md:text-lg">{overview}</p>
         <div className=" flex  md:gap-3">
           <button className="scale-75 md:scale-100 cursor-not-allowed p-3 px-5 bg-white md:text-xl flex items-center gap-2  text-black  rounded-md hover:bg-opacity-85">

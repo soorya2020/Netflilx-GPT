@@ -59,7 +59,7 @@ function Header() {
           <img className="w-32 pt-3 " src="/logo.png" alt="" />
         </div>
         {user && (
-          <div className="flex p-2 justify-center gap-5  w-screen md:w-2/6  md:justify-end">
+          <div className="flex p-2 md:pt-4  md:pr-10 justify-center gap-5  w-screen md:w-2/6   md:justify-end">
             {showSearch && (
               <select
                 name="language"
@@ -90,7 +90,7 @@ function Header() {
             </button>
 
             <img
-              className="hidden md:block"
+              className="hidden md:block cursor-pointer"
               src={USER_PROFILE}
               alt="user profile image"
             />
