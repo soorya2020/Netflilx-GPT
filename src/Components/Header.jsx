@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { LOGO, SUPPORTED_LANGUAGES, USER_PROFILE } from "../constants";
+import { SUPPORTED_LANGUAGES, USER_PROFILE } from "../constants";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";

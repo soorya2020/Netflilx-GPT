@@ -13,7 +13,6 @@ function Browse() {
   usePopularMovies();
   useUpComingMovies();
   const showSearch = useSelector((store) => store.gpt.showSearch);
-  console.log(showSearch);
 
   return (
     <>
@@ -23,7 +22,7 @@ function Browse() {
       ) : (
         <>
           <MainContainer />
-          <SecondaryContainer /> 
+          <SecondaryContainer />
         </>
       )}
       {!showSearch && <Footer />}

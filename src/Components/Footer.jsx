@@ -51,7 +51,7 @@ function Footer() {
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <p className="text-xs">
-            © {new Date().getFullYear()} Netflix Clone — This is a learning
+            © {new Date().getFullYear()} Movie-app bingebox — This is a learning
             project.
           </p>
 

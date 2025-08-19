@@ -120,7 +120,7 @@ function Login() {
         </button>
         <p onClick={toggleForm} className=" cursor-pointer mt-3">
           {isSignInForm
-            ? "New to Netflix? SignUp now"
+            ? "New to BingeBox? SignUp now"
             : "Already a user? signIn now"}
         </p>
       </form>
