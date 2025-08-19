@@ -14,17 +14,20 @@ import { useDispatch } from "react-redux";
 function Login() {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
 
   const handleButtonClick = (e) => {
+    setLoading(true);
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
     if (!isSignInForm && password !== confirmPasswordRef.current.value) {
       setErrorMessage("password do not match");
+      setLoading(false);
       return;
     }
 
@@ -37,9 +40,12 @@ function Login() {
     //signin or signup
     if (isSignInForm) {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => {})
+        .then(() => {
+          setLoading(false);
+        })
         .catch((error) => {
           setErrorMessage(error.message);
+          setLoading(false);
         });
     } else {
       createUserWithEmailAndPassword(auth, email, password)
@@ -52,12 +58,15 @@ function Login() {
             .then(() => {
               const { uid, email, displayName } = auth.currentUser;
               dispatch(addUser({ uid, email, displayName }));
+              setLoading(false);
             })
             .catch((error) => {
+              setLoading(false);
               setErrorMessage(error.message);
             });
         })
         .catch((error) => {
+          setLoading(false);
           setErrorMessage(error.message);
         });
     }
@@ -116,7 +125,17 @@ function Login() {
           className="bg-red-700 p-3 my-4 w-full rounded-md opacity-80"
           onClick={handleButtonClick}
         >
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? (
+            loading ? (
+              <p className="text-xl"> . . . </p>
+            ) : (
+              "Sign In"
+            )
+          ) : loading ? (
+            <p className="text-xl"> . . . </p>
+          ) : (
+            "Sign Up"
+          )}
         </button>
         <p onClick={toggleForm} className=" cursor-pointer mt-3">
           {isSignInForm
