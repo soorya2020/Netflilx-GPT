@@ -6,6 +6,7 @@ import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 import Footer from "./Footer";
 import GptSearch from "./GptSearch";
+import CustomAlert from "./CustomAlert";
 import { useUpComingMovies } from "../Hooks/useUpComingMovies";
 import { useSelector } from "react-redux";
 function Browse() {
@@ -26,6 +27,7 @@ function Browse() {
         </>
       )}
       {!showSearch && <Footer />}
+      <CustomAlert />
     </>
   );
 }
